@@ -1,0 +1,39 @@
+*cxp.txt*  Compile and run code in an Input/Output panel
+
+Author:  hardikxk
+License: GPL-3.0
+
+==============================================================================
+CONTENTS                                                        *cxp-contents*
+
+    1. Introduction ................................ |cxp-introduction|
+    2. Keymaps ..................................... |cxp-keymaps|
+
+==============================================================================
+1. INTRODUCTION                                             *cxp-introduction*
+
+cxp is a small plugin for competitive programming. It opens a side panel
+with an Input buffer and an Output buffer. Write your test input in the
+Input buffer, run the current file, and the result appears in the Output
+buffer: stdout, then stderr, followed by the exit code and run time.
+
+C and C++ files are compiled with clang/clang++ before running.
+TypeScript, JavaScript and Python files are run directly.
+
+==============================================================================
+2. KEYMAPS                                                       *cxp-keymaps*
+
+Call `require('cxp').setup()` to register the default keymaps:
+
+    Key             Action ~
+    <leader>c       Toggle the Input/Output panel
+    <leader>r       Save, compile (if needed) and run the current file
+
+To use different keys, skip setup() and map the functions yourself: >lua
+
+    local cxp = require('cxp')
+    vim.keymap.set('n', '<F5>', cxp.run)
+    vim.keymap.set('n', '<F6>', cxp.toggle)
+<
+
+vim:tw=78:ts=8:ft=help:norl:
